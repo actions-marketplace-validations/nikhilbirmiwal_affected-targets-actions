@@ -2,16 +2,8 @@ name: nbirmiwal/idenity-affected-targets
 author: nikhil
 description: Test GH Action which identifies Affected Targets
 
-# Inputs: can be retrieved via ${{ inputs.foo }}. Specified via env variables. Descriptions / required.
-# inputs:
-
 runs:
   using: composite
   steps:
     - name: "Checkout in GH Action"
       uses: actions/checkout@v3
-
-    - name: "Echo Hello World"
-      shell: bash
-      run: |
-        echo "Hello world!"
