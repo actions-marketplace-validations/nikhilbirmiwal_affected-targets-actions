@@ -8,6 +8,9 @@ description: Test GH Action which identifies Affected Targets
 runs:
   using: composite
   steps:
+    - name: "Checkout in GH Action"
+      uses: actions/checkout@v3
+
     - name: "Echo Hello World"
       shell: bash
       run: |
