@@ -1,9 +1,8 @@
-name: nbirmiwal/idenity-affected-targets
-author: nikhil
-description: Test GH Action which identifies Affected Targets
+name: Hello World
+description: Hello World GH Action
 
 runs:
-  using: composite
+  using: "composite"
   steps:
-    - name: "Checkout in GH Action"
-      uses: actions/checkout@v3
+    - run: echo Hello Nikhil.
+      shell: bash
