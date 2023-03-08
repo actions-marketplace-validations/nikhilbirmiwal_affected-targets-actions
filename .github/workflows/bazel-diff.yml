@@ -1,0 +1,13 @@
+name: bazel-diff
+run-name: Running bazel-diff on ${{ github.sha }}
+on: [push]
+jobs:
+  echo-affected-targets:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set before/after Commit Env Variables
+        run: |
+          echo "action_state=yellow" >> $GITHUB_ENV
+      - name: Test Echo'ing Env Variables
+        run: |
+          echo "${{ env.action_state }}"
