@@ -17,4 +17,4 @@ jobs:
 
       - name: Run Command
         run: |
-          "${GITHUB_WORKSPACE}/bin/bazel" //tools:bazel-diff -V
+          "${GITHUB_WORKSPACE}/bin/bazel" run //tools:bazel-diff -V
