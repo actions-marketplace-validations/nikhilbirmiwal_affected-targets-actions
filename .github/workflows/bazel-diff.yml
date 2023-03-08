@@ -5,9 +5,16 @@ jobs:
   echo-affected-targets:
     runs-on: ubuntu-latest
     steps:
-      - name: Set before/after Commit Env Variables
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install Bazel
         run: |
-          echo "action_state=yellow" >> $GITHUB_ENV
-      - name: Test Echo'ing Env Variables
+          curl -LO "https://github.com/bazelbuild/bazelisk/releases/download/v1.1.0/bazelisk-linux-amd64"
+          mkdir -p "${GITHUB_WORKSPACE}/bin/"
+          mv bazelisk-linux-amd64 "${GITHUB_WORKSPACE}/bin/bazel"
+          chmod +x "${GITHUB_WORKSPACE}/bin/bazel"
+
+      - name: Run Command
         run: |
-          echo "${{ env.action_state }}"
+          "${GITHUB_WORKSPACE}/bin/bazel" //tools:bazel-diff -V
